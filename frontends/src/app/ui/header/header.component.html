@@ -1,0 +1,24 @@
+<nav class="navbar navbar-dark bg-dark mb-5">
+  <a class="navbar-brand">Email App</a>
+  <div class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/email" *ngIf='canAccess()'>Inbox</a>
+      <a class="nav-item nav-link" href="/outbox" *ngIf='canAccess()'>Outbox</a>
+      <a class="nav-item nav-link" href="/signup" *ngIf='!canAccess()'>Signup</a>
+      <a class="nav-item nav-link" href="/login" *ngIf='!canAccess()'>Login</a>
+      <div class="dropdown" *ngIf='canAccess()'>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          Accounts
+        </button>
+        <div class="dropdown-menu">
+          <h6 *ngFor="let user of accounts" class="dropdown-item" (click)="getAccount(user)">{{user}}
+            <button type="button" (click)="logout(user)">
+              Logout
+            </button>
+          </h6>
+          <a class="dropdown-item" href="/login">Add Account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

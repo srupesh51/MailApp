@@ -1,0 +1,39 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>From</th>
+        <th>To</th>
+        <th>Subject</th>
+        <th>Body</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mail of mails" class="active">
+        <td>{{mail.FromUser}}</td>
+        <td>
+          <ul *ngFor="let user of mail.ToUser" class="list-group">
+              <li class="list-group-item">{{user}}</li>
+          </ul>
+        </td>
+        <td>{{mail.Subject}}</td>
+        <td>{{mail.Body}}</td>
+        <td>{{mail.Date}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="dropdown">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      Choose Your Option
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="reply/{{mailID}}">
+        Reply
+      </a>
+      <a class="dropdown-item" href="forward/{{mailID}}">
+        Forward
+      </a>
+    </div>
+  </div>
+</div>

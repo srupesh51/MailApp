@@ -1,0 +1,18 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr *ngIf="checkMails()">
+        <th>From</th>
+        <th>Subject</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mail of sentMails" class="active" (click)="doSomething($event,mail)">
+        <td>{{mail.Messages.FromUser}}</td>
+        <td>{{mail.Messages.Subject}}</td>
+        <td>{{mail.Messages.Date}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="form-group">
+    <button class="btn btn-primary" (click)="compose()">Compose Mail</button>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr *ngIf="checkMails()">
+        <th>From</th>
+        <th>Subject</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mail of receivedMails" class="active" (click)="doSomething($event,mail)">
+        <td>{{mail.Messages.FromUser}}</td>
+        <td>{{mail.Messages.Subject}}</td>
+        <td>{{mail.Messages.Date}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

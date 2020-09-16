@@ -1,0 +1,5 @@
+/backends/nodemon.json
+/backends/node_modules
+/backends/package-lock.json
+/frontends/package-lock.json
+/frontends/node_modules

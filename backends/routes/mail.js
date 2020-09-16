@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const mailController = require('./../controllers/mail');
+router.post('/compose/:id', mailController.createMail);
+router.post('/reply/:id', mailController.reply);
+router.post('/reply-all/:id', mailController.replyAll);
+router.post('/forward/:id', mailController.forward);
+router.get('/received/:received_from', mailController.receivedMail);
+router.get('/:id', mailController.getMails);
+router.get('/sent/:sent_from', mailController.sentMail);
+module.exports = router;
