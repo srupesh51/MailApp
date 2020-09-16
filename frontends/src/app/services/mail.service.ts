@@ -40,4 +40,8 @@ export class MailService {
     return this.http.get<any>(BACKEND_API_URL + '/' + mailID);
   }
 
+  getOutboxMails(mailID: Number, email: string) {
+    return this.http.post<any>(BACKEND_API_URL + '/outbox/' + mailID, {email: email});
+  }
+
 }

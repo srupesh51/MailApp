@@ -7,5 +7,6 @@ router.post('/reply-all/:id', mailController.replyAll);
 router.post('/forward/:id', mailController.forward);
 router.get('/received/:received_from', mailController.receivedMail);
 router.get('/:id', mailController.getMails);
+router.post('/outbox/:id', mailController.getOutboxMails);
 router.get('/sent/:sent_from', mailController.sentMail);
 module.exports = router;

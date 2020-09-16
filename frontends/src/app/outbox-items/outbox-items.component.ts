@@ -11,6 +11,7 @@ import { AlertService } from '../services/alert.service';
   styleUrls: ['./outbox-items.component.css']
 })
 export class OutboxItemsComponent implements OnInit {
+  user = localStorage.getItem('currentUser');
   mailID;
   mails;
   loading = false;
@@ -24,7 +25,7 @@ export class OutboxItemsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.mailService.getMails(this.mailID)
+    this.mailService.getOutboxMails(this.mailID, this.user)
     .pipe(first())
     .subscribe(
         data => {
